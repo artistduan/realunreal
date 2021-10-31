@@ -6,6 +6,66 @@
     <meta property="og:image" content="https://jinchen.org/images/bg/poster.jpg">
     <title>Jinchen Art</title>
     <link href="https://jinchen.org/css/layout.css" rel="stylesheet" />
+    <style type="text/css">
+    section.x-section-head {
+        margin-bottom: 60px;
+    }
+    section.x-section-head > section {
+        text-align: center;
+    }
+    section.x-section-head > section > img {
+        width: 100%;
+        border-radius: 4px;
+        user-select: none;
+    }
+    section.x-section-intro {
+        background-color: #333;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-top: 60px;
+        border-top: 1px solid #444;
+    }
+    section.x-section-intro > section > ul, .x-section-intro > section > ul > li {
+        list-style: circle;
+    }
+    section.x-section-intro > section > ul > li {
+        margin-bottom: 8px;
+    }
+    section.x-section-events {
+        margin-top: 40px;
+        margin-bottom: 120px; 
+    }
+    section.x-section-events > h2 {
+        cursor: default;
+        user-select: none;
+    }
+    section.x-section-events > h2 > span {
+        font-size: 14px;
+    }
+    section.x-section-events > section > div {
+        font-style: italic;
+        cursor: default;
+        user-select: none;
+    }
+    section.x-section-events > section > ul {
+        padding: 0;
+        margin: 8px 0;
+        list-style: none;
+    }
+    section.x-section-events > section > ul > li {
+        line-height: 20px;
+        background-color: #303030;
+        padding: 8px 24px;
+        margin: 0 0 8px 0;
+        border: 1px solid #333;
+        border-radius: 8px;
+        list-style: none;
+        transition: 0.4s;
+    }
+    section.x-section-events > section > ul > li:hover {
+        background-color: #333;
+    }
+    </style>
 </head>
 <body>
     <header>
@@ -27,14 +87,14 @@
             </ul>
         </section>
     </header>
-    <section>
+    <section class="x-section-head" >
         <h2><span>虚实之间</span></h2>
-        <section style="text-align: center; " >
-            <img alt="Intro" src="web/images/card_home_intro.jpg" style="width: 100%; border-radius: 4px; " />
+        <section>
+            <img alt="Intro" src="web/images/card_home_intro.jpg" />
             <br /><span>Art opens a window for you &nbsp; · &nbsp; 段湧 工作室</span>
         </section>
     </section>
-    <section style="background-color: #333; padding-top: 20px; padding-bottom: 20px; " >
+    <section class="x-section-intro" >
         <section>
             <span style="font-size: 16px; " >David Tuan</span><span>, graduated from the Academy of Fine Arts, Jiangxi Normal University.<br />段湧（毕业于江西师范大学美术学院）</span>
         </section>
@@ -48,8 +108,8 @@
             </ul>
         </section>
     </section>
-    <section style="margin-bottom: 100px; " >
-        <h2>Recent Art Events<span style="font-size: 14px; " > &nbsp; 近年艺术活动</span></h2>
+    <section class="x-section-events" >
+        <h2>近年艺术活动<span> &nbsp; Recent Art Events</span></h2>
         <section>
             <div><span>‘2019</span></div>
             <ul>
@@ -64,25 +124,25 @@
             <div><span>‘2017</span></div>
             <ul>
                 <li><span>第六届“庐山水彩艺术节”特约嘉宾，5幅作品参加世界巡展
-                    <br />Participated the 6th Lushan International Art Festival of WaterColor as a special guest, and 5 works were selected for the world tour exhibition.</span></li>
+                    <br />Participated the 6<sup>th</sup> Lushan International Art Festival of WaterColor as a special guest, and 5 works were selected for the world tour exhibition.</span></li>
                 <li><span>参加“水韵溢彩六人作品展”
                     <br />Participated in the Water Rhyme Overflow Color Six Artists’ Works Exhibition.</span></li>
                 <li><span>《泊》入选“新丝路·新加坡国际水彩展”
-Beached was selected for the New Silk Road - Singapore International Watercolor Exhibition.</span></li>
+                    <br /><em>Beached</em> was selected for the New Silk Road - Singapore International Watercolor Exhibition.</span></li>
                 <li><span>作品《秋日芦语》第二届“亚洲美作品展” 获优秀奖
-                    <br />Phragmites Talk in Autumn got award of excellence in Second Asian American Works Exhibition.</span></li>
+                    <br /><em>Phragmites Talk in Autumn</em> got award of excellence in Second Asian American Works Exhibition.</span></li>
             </ul>
             <div><span>‘2016</span></div>
             <ul>
                 <li><span>作品《静湖》参加“潮汕国际水彩展” 任特邀嘉宾
-                    <br />Peaceful Lake participated in the Chaoshan International Watercolor Exhibition, and attended as a special guest.</span></li>
+                    <br /><em>Peaceful Lake</em> participated in the Chaoshan International Watercolor Exhibition, and attended as a special guest.</span></li>
                 <li><span>《沐浴阳光 No. 1》参加“广东江西两省水彩画展” 任评督
-                    <br />No. 1 Bathing in the Sunshine participated in the Watercolor Exhibition of Guangdong and Jiangxi Provinces, and attended as a supervisor.</span></li>
+                    <br /><em>No. 1 Bathing in the Sunshine</em> participated in the Watercolor Exhibition of Guangdong and Jiangxi Provinces, and attended as a supervisor.</span></li>
             </ul>
             <div><span>‘2015</span></div>
             <ul>
                 <li><span>水彩画《发小》在‘’2015江西水彩、粉画作品展“ 任展览评委
-                    <br />Childhood Friend watercolor painting participated in 2015 Jiangxi Watercolor, Pink Painting Exhibition, and attended as an exhibition judge.</span></li>
+                    <br /><em>Childhood Friend</em> watercolor painting participated in 2015 Jiangxi Watercolor, Pink Painting Exhibition, and attended as an exhibition judge.</span></li>
             </ul>
         </section>
     </section>
