@@ -21,6 +21,7 @@
     section#section-works > section {
         display: flex;
         flex-wrap: wrap;
+        user-select: none;
     }
     section#section-works > section > img {
         background-color: #333;
@@ -89,6 +90,8 @@
         right: 0;
         backdrop-filter: blur(10px);
         background-color: rgba(0,0,0,0.6);
+        user-select: none;
+        cursor: default;
     }
     div#popup-view > div:first-child {
         position: absolute;
