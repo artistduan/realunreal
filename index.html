@@ -7,22 +7,23 @@
     <title>Jinchen Art</title>
     <link href="https://jinchen.org/css/layout.css" rel="stylesheet" />
     <style type="text/css">
-    section.x-section-head {
+    section#section-head {
         margin-bottom: 60px;
     }
-    section.x-section-head > section {
+    section#section-head > section {
         text-align: center;
     }
-    section.x-section-head > section > img {
+    section#section-head > section > img {
         width: 100%;
         border-radius: 4px;
         user-select: none;
     }
-    section.x-section-works > section {
+    section#section-works > section {
         display: flex;
         flex-wrap: wrap;
     }
-    section.x-section-works > section > img {
+    section#section-works > section > img {
+        background-color: #333;
         width: 244px;
         height: 200px;
         margin: 0 6px 6px 0;
@@ -30,44 +31,44 @@
         object-fit: cover;
         transition: 0.4s;
     }
-    section.x-section-works > section > img:hover {
+    section#section-works > section > img:hover {
         filter: contrast(1.2);
     }
-    section.x-section-intro {
+    section#section-intro {
         background-color: #333;
         padding-top: 20px;
         padding-bottom: 20px;
         margin-top: 60px;
         border-top: 1px solid #444;
     }
-    section.x-section-intro > section > ul, .x-section-intro > section > ul > li {
+    section#section-intro > section > ul, .x-section-intro > section > ul > li {
         list-style: circle;
     }
-    section.x-section-intro > section > ul > li {
+    section#section-intro > section > ul > li {
         margin-bottom: 8px;
     }
-    section.x-section-events {
+    section#section-events {
         margin-top: 40px;
         margin-bottom: 120px; 
     }
-    section.x-section-events > h2 {
+    section#section-events > h2 {
         cursor: default;
         user-select: none;
     }
-    section.x-section-events > h2 > span {
+    section#section-events > h2 > span {
         font-size: 14px;
     }
-    section.x-section-events > section > div {
+    section#section-events > section > div {
         font-style: italic;
         cursor: default;
         user-select: none;
     }
-    section.x-section-events > section > ul {
+    section#section-events > section > ul {
         padding: 0;
         margin: 8px 0;
         list-style: none;
     }
-    section.x-section-events > section > ul > li {
+    section#section-events > section > ul > li {
         line-height: 20px;
         background-color: #303030;
         padding: 8px 24px;
@@ -77,11 +78,47 @@
         list-style: none;
         transition: 0.4s;
     }
-    section.x-section-events > section > ul > li:hover {
+    section#section-events > section > ul > li:hover {
         background-color: #333;
     }
+    div#popup-view {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        backdrop-filter: blur(10px);
+        background-color: rgba(0,0,0,0.6);
+    }
+    div#popup-view > div:first {
+        position: absolute;
+        text-align: center;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 50px;
+    }
+    div#popup-view > div:first > img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+    div#popup-view > div:first + div {
+        font-size: 14px;
+        height: 48px;
+        line-height: 24px;
+        text-align: center;
+        text-shadow: 0 0 4px black;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 2px;
+    }
+    div#popup-view > div:first + div > span:first {
+        font-size: 16px;
+    }
     @media screen and (max-width:560px) {
-        section.x-section-works > section > img {
+        section#section-works > section > img {
         width: 100%;
         height: 320px;
         margin: 0 0 10px 0;
@@ -112,15 +149,15 @@
             </ul>
         </section>
     </header>
-    <section class="x-section-head" >
+    <section id="section-head" >
         <h2><span>虚实之间</span></h2>
         <section>
             <img alt="Intro" src="images/bg/card_home_intro.jpg" />
             <br /><span>Art opens a window for you &nbsp; · &nbsp; 段湧 工作室</span>
         </section>
     </section>
-    <section class="x-section-works" >
-        <section>
+    <section id="section-works" >
+        <section onclick="onImageClick">
             <img alt="沐浴阳光 (102×68cm)" src="images/works/BathingInSunshine.JPG" />
             <img alt="泊 (34×58cm)" src="images/works/Beached2017.jpg" />
             <img alt="二月樱云唤渡船 (38×56cm)" src="images/works/BoatInFebClouds.jpg" />
@@ -139,7 +176,7 @@
             <img alt="婺源之晨 (55x38cm)" src="images/works/WuyuanMorning2019.jpg" />
         </section>
     </section>
-    <section class="x-section-intro" >
+    <section id="section-intro" >
         <section>
             <span style="font-size: 16px; " >David Tuan</span><span>, graduated from the Academy of Fine Arts, Jiangxi Normal University.<br />段湧（毕业于江西师范大学美术学院）</span>
         </section>
@@ -153,7 +190,7 @@
             </ul>
         </section>
     </section>
-    <section class="x-section-events" >
+    <section id="section-events" >
         <h2>近年艺术活动<span> &nbsp; Recent Art Events</span></h2>
         <section>
             <div><span>‘2019</span></div>
@@ -199,5 +236,22 @@
             </div>
         </section>
     </footer>
+    <div id="popup-view" style="display: none; " onclick="hidePopupView" >
+        <div><img id="popup-view-img"></div><div><span id="popup-view-title"></span><span id="popup-view-desc"></span></div>
+    </div>
+    <script type="text/javascript">
+    function onImageClick() {
+        let ele = ev.srcElement || ev.target;
+        if (!ele || !ele.tagName || ele.tagName.toUpperCase() !== "IMG") return;
+        document.getElementById("popup-view-img").src = ele.src;
+        document.getElementById("popup-view-img").alt = ele.alt;
+        document.getElementById("popup-view-title").innerHTML = ele.alt;
+        document.getElementById("popup-view-desc").innerHTML = "";
+        document.getElementById("popup-view").style.display = "";
+    }
+    function hidePopupView() {
+        document.getElementById("popup-view").style.display = "none";
+    }
+    </script>
 </body>
 </html>
