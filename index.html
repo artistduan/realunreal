@@ -157,7 +157,7 @@
         </section>
     </section>
     <section id="section-works" >
-        <section onclick="onImageClick">
+        <section>
             <img alt="沐浴阳光 (102×68cm)" src="images/works/BathingInSunshine.JPG" />
             <img alt="泊 (34×58cm)" src="images/works/Beached2017.jpg" />
             <img alt="二月樱云唤渡船 (38×56cm)" src="images/works/BoatInFebClouds.jpg" />
@@ -236,11 +236,11 @@
             </div>
         </section>
     </footer>
-    <div id="popup-view" style="display: none; " onclick="hidePopupView" >
+    <div id="popup-view" style="display: none; " >
         <div><img id="popup-view-img"></div><div><span id="popup-view-title"></span><span id="popup-view-desc"></span></div>
     </div>
     <script type="text/javascript">
-    function onImageClick() {
+    function onImageClick(ev) {
         let ele = ev.srcElement || ev.target;
         if (!ele || !ele.tagName || ele.tagName.toUpperCase() !== "IMG") return;
         document.getElementById("popup-view-img").src = ele.src;
@@ -252,6 +252,10 @@
     function hidePopupView() {
         document.getElementById("popup-view").style.display = "none";
     }
+    (function () {
+        document.getElementById("popup-view").addEventListener("click", hidePopupView);
+        document.getElementById("section-works").addEventListener("click", onImageClick);
+    })();
     </script>
 </body>
 </html>
