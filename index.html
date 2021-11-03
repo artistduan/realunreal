@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:image" content="https://jinchen.org/images/bg/poster.jpg">
-    <title>Jinchen Art</title>
+    <title>Real &amp; Unreal 虚实之间 - Jinchen Art</title>
     <link href="https://jinchen.org/css/layout.css" rel="stylesheet" />
     <style type="text/css">
     section#section-head {
@@ -18,29 +18,52 @@
         border-radius: 4px;
         user-select: none;
     }
-    section#section-works > section {
+    section#section-works > section:first-child {
+        margin-bottom: 0;
         display: flex;
         flex-wrap: wrap;
         user-select: none;
     }
-    section#section-works > section > img {
+    section#section-works > section:first-child > img {
         background-color: #333;
         width: 244px;
         height: 200px;
         margin: 0 6px 6px 0;
         border-radius: 4px;
         object-fit: cover;
-        transition: 0.4s;
+        transition: 0.2s;
+        cursor: pointer;
     }
-    section#section-works > section > img:hover {
+    section#section-works > section:first-child > img:hover {
         filter: contrast(1.2);
+    }
+    section#section-works > section:first-child + section {
+        margin-top: 0;
+    }
+    section#section-works span#section-works-more {
+        color: #CCC;
+        line-height: 30px;
+        text-align: center;
+        height: 30px;
+        background-color: #333;
+        border-radius: 4px;
+        display: block;
+        transition: 0.2s;
+        cursor: pointer;
+    }
+    section#section-works span#section-works-more:hover {
+        color: #9CF;
+        background-color: #444;
     }
     section#section-intro {
         background-color: #333;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
         margin-top: 60px;
         border-top: 1px solid #444;
+    }
+    section#section-intro > div:first-child > span:first-child {
+        font-size: 16px;
     }
     section#section-intro > section > ul, .x-section-intro > section > ul > li {
         list-style: circle;
@@ -117,7 +140,7 @@
         right: 0;
         bottom: 2px;
     }
-    div#popup-view > div:first-child + div > span:first {
+    div#popup-view > div:first-child + div > span:first-child {
         font-size: 16px;
     }
     @media screen and (max-width:560px) {
@@ -160,28 +183,18 @@
         </section>
     </section>
     <section id="section-works" >
+        <section id="section-works-container" >
+        </section>
         <section>
-            <img alt="沐浴阳光 (102×68cm)" src="images/works/BathingInSunshine.JPG" />
-            <img alt="泊 (34×58cm)" src="images/works/Beached2017.jpg" />
-            <img alt="二月樱云唤渡船 (38×56cm)" src="images/works/BoatInFebClouds.jpg" />
-            <img alt="发小 (69×108cm)" src="images/works/ChildhoodFriends2015.jpg" />
-            <img alt="作品" src="images/works/IMG_20190516_123509.jpg" />
-            <img alt="看太阳 (54x68cm)" src="images/works/LookAtSun.jpg" />
-            <img alt="庐山原居 (39×55cm)" src="images/works/LushanHouses.jpg" />
-            <img alt="云起匡庐 (39×55cm)" src="images/works/LushanInCloud.jpg" />
-            <img alt="庐山溪林 (68x46cm)" src="images/works/LushanXilin.jpg" />
-            <img alt="湄洲岛之乐 (4×39cm)" src="images/works/Meizhoudao.jpg" />
-            <img alt="晨渔 (38x56cm)" src="images/works/MorningFishing.jpg" />
-            <img alt="垄上 (55×78cm)" src="images/works/OnRidge.jpg" />
-            <img alt="静 (55x38cm)" src="images/works/Peace2019.jpg" />
-            <img alt="青岛渔港 (55x38cm)" src="images/works/TsingtaoHarbour2018.jpg" />
-            <img alt="秋日芦语 (68×105cm)" src="images/works/PhragmitesTalkInAutumn2017.jpg" />
-            <img alt="婺源之晨 (55x38cm)" src="images/works/WuyuanMorning2019.jpg" />
+            <span id="section-works-more" style="display: none; " >+ More 查看更多</span>
         </section>
     </section>
     <section id="section-intro" >
         <section>
-            <span style="font-size: 16px; " >David Tuan</span><span>, graduated from the Academy of Fine Arts, Jiangxi Normal University.<br />段湧（毕业于江西师范大学美术学院）</span>
+            <span>David Tuan</span><span>, graduated from the Academy of Fine Arts, Jiangxi Normal University.</span>
+        </section>
+        <section>
+            <span>段湧（毕业于江西师范大学美术学院）</span>
         </section>
         <section>
             <ul>
@@ -240,24 +253,85 @@
         </section>
     </footer>
     <div id="popup-view" style="display: none; " >
-        <div><img id="popup-view-img"></div><div><span id="popup-view-title"></span><span id="popup-view-desc"></span></div>
+        <div><img id="popup-view-img"></div><div><span id="popup-view-title"></span><br /><span id="popup-view-desc"></span></div>
     </div>
     <script type="text/javascript">
-    function onImageClick(ev) {
-        let ele = ev.srcElement || ev.target;
-        if (!ele || !ele.tagName || ele.tagName.toUpperCase() !== "IMG") return;
-        document.getElementById("popup-view-img").src = ele.src;
-        document.getElementById("popup-view-img").alt = ele.alt;
-        document.getElementById("popup-view-title").innerHTML = ele.alt;
-        document.getElementById("popup-view-desc").innerHTML = "";
-        document.getElementById("popup-view").style.display = "";
-    }
-    function hidePopupView() {
-        document.getElementById("popup-view").style.display = "none";
-    }
     (function () {
+        var images = [
+            { name: "沐浴阳光", size: "102×68", url: "images/works/BathingInSunshine.JPG" },
+            { name: "泊", size: "34×58", url: "images/works/Beached2017.jpg" },
+            { name: "二月樱云唤渡船", size: "38×56", url: "images/works/BoatInFebClouds.jpg" },
+            { name: "发小", size: "69×108", url: "images/works/ChildhoodFriends2015.jpg" },
+            { url: "images/works/IMG_20190516_123509.jpg" },
+            { name: "看太阳", size: "54x68", url: "images/works/LookAtSun.jpg" },
+            { name: "庐山原居", size: "39×55", url: "images/works/LushanHouses.jpg" },
+            { name: "云起匡庐", size: "39×55", url: "images/works/LushanInCloud.jpg" },
+            { name: "庐山溪林", size: "68x46", url: "images/works/LushanXilin.jpg" },
+            { name: "湄洲岛之乐", size: "54×39", url: "images/works/Meizhoudao.jpg" },
+            { name: "晨渔", size: "38x56", url: "images/works/MorningFishing.jpg" },
+            { name: "垄上", size: "55×78", url: "images/works/OnRidge.jpg" },
+            { name: "静", size: "55x38", url: "images/works/Peace2019.jpg" },
+            { name: "青岛渔港", size: "55x38", url: "images/works/TsingtaoHarbour2018.jpg" },
+            { name: "秋日芦语", size: "68×105", url: "images/works/PhragmitesTalkInAutumn2017.jpg" },
+            { name: "婺源之晨", size: "55x38", url: "images/works/WuyuanMorning2019.jpg" },
+            { name: "夜不打烊", size: "61x46", url: "images/works/FantasticNight.jpeg" },
+            { name: "穿汉服的小姑娘", size: "61x46", url: "images/works/HanClothingGirl.jpeg" },
+            { name: "威海晨曲", size: "63x48", url: "images/works/MorningWeihai.jpeg" },
+            { name: "风动南澳岛", size: "53x38", url: "images/works/NanaoIsland.jpeg" },
+            { name: "新小学生", size: "38x53", url: "images/works/NewPupils.jpeg" },
+            { name: "老巷童谣", size: "38x53", url: "images/works/NurseryRhymesLane.jpeg" },
+            { name: "南粤的海", size: "53x38", url: "images/works/SeaNearSouthCanton.jpeg" },
+            { name: "稚心亦素", size: "150x120", url: "images/works/SweetieAndChickens.jpeg" },
+            { name: "婺源·古巡检司", size: "53x38", url: "images/works/WuyuanInspectorGeneral.jpeg" },
+            { name: "遥远的右玉之一", size: "53x38", url: "images/works/Youyu1.jpeg" },
+            { name: "遥远的右玉之二", size: "53x38", url: "images/works/Youyu2.jpeg" },
+            { name: "遥远的右玉之三", size: "53x38", url: "images/works/Youyu3.jpeg" }
+        ];
+        var defaultName = "作品";
+        var pageSize = 12;
+        var offset = 0;
+        function hidePopupView() {
+            document.getElementById("popup-view").style.display = "none";
+        }
+        function renderImage(containerEle, imageInfo) {
+            var imageEle = document.createElement("img");
+            imageEle.src = imageInfo.url;
+            var imageName = imageInfo.name;
+            var imageSize = imageInfo.size || "";
+            if (imageSize && imageSize.indexOf("x") > 0)
+                imageSize = imageSize.replace("x", "cm × ") + "cm";
+            if (imageName) {
+                if (imageSize) imageName += " (" + imageSize + ")";
+            } else {
+                imageName = defaultName;
+            }
+            imageEle.alt = imageName;
+            containerEle.appendChild(imageEle);
+            imageEle.addEventListener("click", function (ev) {
+                document.getElementById("popup-view-img").src = imageInfo.url;
+                document.getElementById("popup-view-img").alt = imageName;
+                document.getElementById("popup-view-title").innerHTML = imageInfo.name || defaultName;
+                document.getElementById("popup-view-desc").innerHTML = imageSize;
+                document.getElementById("popup-view").style.display = "";
+            });
+        }
+        function renderNextWave() {
+            var containerEle = document.getElementById("section-works-container");
+            for (var i = offset; i < Math.min(offset + pageSize, images.length); i++) {
+                var imageInfo = images[i];
+                if (!imageInfo) continue;
+                try {
+                    renderImage(containerEle, imageInfo);
+                } catch (ex) { }
+            }
+            offset += pageSize;
+            document.getElementById("section-works-more").style.display = offset < images.length ? "" : "none";
+        }
+        renderNextWave();
         document.getElementById("popup-view").addEventListener("click", hidePopupView);
-        document.getElementById("section-works").addEventListener("click", onImageClick);
+        document.getElementById("section-works-more").addEventListener("click", function () {
+            renderNextWave();
+        });
     })();
     </script>
 </body>
