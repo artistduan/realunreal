@@ -45,15 +45,15 @@
         line-height: 30px;
         text-align: center;
         height: 30px;
-        background-color: #333;
+        background-color: #369;
         border-radius: 4px;
         display: block;
         transition: 0.2s;
         cursor: pointer;
     }
     section#section-works span#section-works-more:hover {
-        color: #9CF;
-        background-color: #444;
+        color: #EEE;
+        background-color: #47A;
     }
     section#section-intro {
         background-color: #333;
@@ -63,7 +63,7 @@
         margin-top: 60px;
         border-top: 1px solid #444;
     }
-    section#section-intro > div:first-child > strong {
+    section#section-intro > section:first-child > strong {
         font-size: 16px;
         font-weight: normal;
         font-style: normal;
@@ -79,10 +79,12 @@
         margin-bottom: 120px; 
     }
     section#section-events > h2 {
+        color: #C96;
         cursor: default;
         user-select: none;
     }
     section#section-events > h2 > span {
+        color: #A75;
         font-size: 14px;
     }
     section#section-events > section > div {
@@ -263,22 +265,24 @@
     <script type="text/javascript">
     (function () {
         var images = [
-            { name: "沐浴阳光", size: "102×68", url: "images/works/BathingInSunshine.JPG" },
-            { name: "泊", size: "34×58", url: "images/works/Beached2017.jpg" },
-            { name: "二月樱云唤渡船", size: "38×56", url: "images/works/BoatInFebClouds.jpg" },
-            { name: "发小", size: "69×108", url: "images/works/ChildhoodFriends2015.jpg" },
+            { name: "沐浴阳光", size: "102x68", url: "images/works/BathingInSunshine.JPG" },
+            { name: "静", size: "55x38", url: "images/works/Peace2019.jpg", year: 2019 },
+            { name: "婺源之晨", size: "55x38", url: "images/works/WuyuanMorning2019.jpg", year: 2019 },
+            { name: "青岛渔港", size: "55x38", url: "images/works/TsingtaoHarbour2018.jpg", year: 2018 },
+            { name: "青岛晨", size: "55x38", url: "images/works/MorningTsingtao2018.jpg", year: 2018 },
+            { name: "泊", size: "34x58", url: "images/works/Beached2017.jpg", year: 2017 },
+            { name: "泰宁云秋", size: "39x55", url: "images/works/TainingAutumnCloud2017.jpg", year: 2017 },
+            { name: "秋日芦语", size: "68x105", url: "images/works/PhragmitesTalkInAutumn2017.jpg", year: 2017 },
+            { name: "二月樱云唤渡船", size: "38x56", url: "images/works/BoatInFebClouds.jpg" },
+            { name: "发小", size: "69x108", url: "images/works/ChildhoodFriends2015.jpg", year: 2015 },
             { url: "images/works/IMG_20190516_123509.jpg" },
             { name: "看太阳", size: "54x68", url: "images/works/LookAtSun.jpg" },
-            { name: "庐山原居", size: "39×55", url: "images/works/LushanHouses.jpg" },
-            { name: "云起匡庐", size: "39×55", url: "images/works/LushanInCloud.jpg" },
+            { name: "庐山原居", size: "39x55", url: "images/works/LushanHouses.jpg" },
+            { name: "云起匡庐", size: "39x55", url: "images/works/LushanInCloud.jpg" },
             { name: "庐山溪林", size: "68x46", url: "images/works/LushanXilin.jpg" },
-            { name: "湄洲岛之乐", size: "54×39", url: "images/works/Meizhoudao.jpg" },
+            { name: "湄洲岛之乐", size: "54x39", url: "images/works/Meizhoudao.jpg" },
             { name: "晨渔", size: "38x56", url: "images/works/MorningFishing.jpg" },
-            { name: "垄上", size: "55×78", url: "images/works/OnRidge.jpg" },
-            { name: "静", size: "55x38", url: "images/works/Peace2019.jpg" },
-            { name: "青岛渔港", size: "55x38", url: "images/works/TsingtaoHarbour2018.jpg" },
-            { name: "秋日芦语", size: "68×105", url: "images/works/PhragmitesTalkInAutumn2017.jpg" },
-            { name: "婺源之晨", size: "55x38", url: "images/works/WuyuanMorning2019.jpg" },
+            { name: "垄上", size: "55x78", url: "images/works/OnRidge.jpg" },
             { name: "夜不打烊", size: "61x46", url: "images/works/FantasticNight.jpeg" },
             { name: "穿汉服的小姑娘", size: "61x46", url: "images/works/HanClothingGirl.jpeg" },
             { name: "威海晨曲", size: "63x48", url: "images/works/MorningWeihai.jpeg" },
@@ -290,7 +294,9 @@
             { name: "婺源·古巡检司", size: "53x38", url: "images/works/WuyuanInspectorGeneral.jpeg" },
             { name: "遥远的右玉之一", size: "53x38", url: "images/works/Youyu1.jpeg" },
             { name: "遥远的右玉之二", size: "53x38", url: "images/works/Youyu2.jpeg" },
-            { name: "遥远的右玉之三", size: "53x38", url: "images/works/Youyu3.jpeg" }
+            { name: "遥远的右玉之三", size: "53x38", url: "images/works/Youyu3.jpeg" },
+            { name: "船厂", size: "39x55", url: "images/works/Shipyard2015.jpg", year: 2015 },
+            { name: "赣江边", size: "39x55", url: "images/works/GanRiverside2015.jpg", year: 2015 }
         ];
         var defaultName = "作品";
         var pageSize = 12;
