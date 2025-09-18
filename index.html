@@ -8,8 +8,9 @@
     <meta property="og:title" content="Real &amp; Unreal 虚实之间 - Jinchen Art" />
     <meta name="description" content="Real &amp; Unreal, a David Tuan studio: Art opens a window for you.  (虚实之间——段湧工作室)" />
     <meta property="og:description" content="Real &amp; Unreal, a David Tuan studio: Art opens a window for you.  (虚实之间——段湧工作室)" />
-    <link href="https://cdn.jsdelivr.net/npm/hje@2.1.0/docs/css/site.art.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/hje@2.2.0/docs/css/site.art.css" rel="stylesheet" />
     <link href="https://jinchen.org/css/current.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/hje@2.2.0/docs/js/site.bundle.js" ></script>
     <style type="text/css">
     section#section-head {
         margin-bottom: 60px;
@@ -64,8 +65,7 @@
     }
     section#section-intro {
         background-color: #333;
-        background-image: url(https://cdn.jsdelivr.net/npm/hje@2.1.0/docs/images/bg/jc/motley_333.jpg);
-        padding-top: 10px;
+        padding-top: 9px;
         padding-bottom: 10px;
         margin-top: 60px;
         border-top: 1px solid #444;
@@ -184,8 +184,13 @@
         }
     }
     </style>
+    <script type="text/javascript" src="https://jinchen.org/js/current.js" ></script>
+    <script type="text/javascript" >
+    function onInit() {
+    }
+    </script>
 </head>
-<body>
+<body onload="onInit()">
     <header>
         <section>
             <h1><a href="https://jinchen.org"><em>Jinchen Art</em></a></h1>
@@ -216,7 +221,7 @@
             <span id="section-works-more" style="display: none; " >+ More 查看更多</span>
         </section>
     </section>
-    <section id="section-intro" >
+    <section id="section-intro" class="x-bg-motley-light" >
         <section>
             <strong>David Tuan</strong><span>, graduated from the Academy of Fine Arts, Jiangxi Normal University.</span>
         </section>
