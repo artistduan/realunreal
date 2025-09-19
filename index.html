@@ -13,7 +13,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/hje@2.2.0/docs/js/site.bundle.js" ></script>
     <style type="text/css">
     section#section-head {
-        margin-bottom: 60px;
+        margin-top: 40px; margin-bottom: 60px;
     }
     section#section-head > section {
         text-align: center;
@@ -187,6 +187,11 @@
     <script type="text/javascript" src="https://jinchen.org/js/current.js" ></script>
     <script type="text/javascript" >
     function onInit() {
+        if (!curSite.translate({
+            "title": "",
+            "section-works-more": "seeMore"
+        })) return;
+        site.setElementProp("text-graduation", null, "毕业于江西师范大学美术学院。");
     }
     </script>
 </head>
@@ -195,20 +200,19 @@
         <section>
             <h1><a href="https://jinchen.org"><em>Jinchen Art</em></a></h1>
             <ul>
-                <li class="state-sel" title="虚实之间">
-                    <a href="https://realunreal.jinchen.org">Real &amp; Unreal</a>
+                <li class="state-sel">
+                    <a id="title-realun" href="https://realunreal.jinchen.org">Real &amp; Unreal</a>
                 </li>
-                <li title="《江西水彩》">
-                    <a href="https://jinchen.org/watercolor">Jiangxi Watercolor</a>
+                <li>
+                    <a id="title-jxwatercolor" href="https://jinchen.org/watercolor">Jiangxi Watercolor</a>
                 </li>
-                <li title="金辰装饰设计">
-                    <a href="https://jinchen.org/decoration">Decoration</a>
+                <li>
+                    <a id="title-decoration" href="https://jinchen.org/decoration">Decoration</a>
                 </li>
             </ul>
         </section>
     </header>
     <section id="section-head" >
-        <h2><span>虚实之间</span></h2>
         <section>
             <img alt="Intro" src="images/bg/card_home_intro.jpg" />
             <br /><span>Art opens a window for you &nbsp; · &nbsp; 段湧 工作室</span>
@@ -218,15 +222,12 @@
         <section id="section-works-container" >
         </section>
         <section>
-            <span id="section-works-more" style="display: none; " >+ More 查看更多</span>
+            <span id="section-works-more" style="display: none; " >See more</span>
         </section>
     </section>
     <section id="section-intro" class="x-bg-motley-light" >
         <section>
-            <strong>David Tuan</strong><span>, graduated from the Academy of Fine Arts, Jiangxi Normal University.</span>
-        </section>
-        <section>
-            <span>段湧（毕业于江西师范大学美术学院）</span>
+            <strong>段湧</strong><span> (David Tuan), </span><span id="text-graduation">graduated from the Academy of Fine Arts, Jiangxi Normal University.</span>
         </section>
         <section>
             <ul>
