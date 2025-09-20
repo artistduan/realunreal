@@ -10,6 +10,7 @@
     <meta property="og:description" content="Real &amp; Unreal, a David Tuan studio: Art opens a window for you.  (虚实之间——段湧工作室)" />
     <link href="https://cdn.jsdelivr.net/npm/hje@2.2.0/docs/css/site.art.css" rel="stylesheet" />
     <link href="https://jinchen.org/css/current.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="./images/logos/jinchen-art.png" />
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/hje@2.2.0/docs/js/site.bundle.js" ></script>
     <style type="text/css">
     section#section-head {
@@ -57,11 +58,26 @@
         border-radius: 4px;
         display: block;
         transition: 0.2s;
+        user-select: none;
         cursor: pointer;
     }
     section#section-works span#section-works-more:hover {
-        color: #EEE;
-        background-color: #47A;
+        color: #EEE; background-color: #47A;
+    }
+    section#section-works span#section-works-more:active {
+        color: #CCC; background-color: #47A;
+    }
+    section#section-works span#section-works-more > span:first-child {
+        vertical-align: baseline;
+    }
+    section#section-works span#section-works-more > span:first-child + img {
+        width: 12px; height: 12px; margin-left: 10px; vertical-align: middle; opacity: 0.8; transition: 0.2s;
+    }
+    section#section-works span#section-works-more:active > span:first-child + img {
+        opacity: 1;
+    }
+    section#section-works span#section-works-more:active > span:first-child + img {
+        width: 8px; height: 8px; opacity: 0.8;
     }
     section#section-intro {
         background-color: #333;
@@ -189,7 +205,7 @@
     function onInit() {
         if (!curSite.translate({
             "title": "",
-            "section-works-more": "seeMore"
+            "button-works-more": "seeMore"
         })) return;
         site.setElementProp("text-graduation", null, "毕业于江西师范大学美术学院。");
     }
@@ -222,7 +238,7 @@
         <section id="section-works-container" >
         </section>
         <section>
-            <span id="section-works-more" style="display: none; " >See more</span>
+            <span id="section-works-more" style="display: none; " ><span id="button-works-more">See more</span><img alt="See more" src="https://cdn.jsdelivr.net/npm/hje@2.2.0/docs/images/ele/down_pos_white.png" /></span>
         </section>
     </section>
     <section id="section-intro" class="x-bg-motley-light" >
