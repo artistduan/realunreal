@@ -25,7 +25,6 @@
         user-select: none;
     }
     section#section-works > section:first-child {
-        margin-bottom: 0;
         display: grid;
         gap: 6px;
         grid-template-columns: repeat(6, 1fr);
@@ -406,7 +405,13 @@
             document.getElementById("section-works-more").style.display = offset < images.length ? "" : "none";
         }
         renderNextWave();
-        document.getElementById("popup-view").addEventListener("click", hidePopupView);
+        var popup = document.getElementById("popup-view");
+        popup.addEventListener("click", hidePopupView);
+        popup.addEventListener("touchend", function (ev) {
+            setTimeout(function () {
+                hidePopupView();
+            }, 200);
+        });
         document.getElementById("section-works-more").addEventListener("click", function () {
             renderNextWave();
         });
